@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <g id="icn_chatbot" transform="translate(-764 505)">
+    <rect id="Rectangle_18" data-name="Rectangle 18" width="36" height="36" transform="translate(764 -505)" fill="none"/>
+    <g id="logo_wyh_chatbot" transform="translate(506.498 -765.277)">
+      <path id="Path_65" data-name="Path 65" d="M277.821,299.617h22.114a12.2,12.2,0,0,1,2.533,6.77,13.255,13.255,0,0,1-2.241,6.624h-3.069v3.308l-4.092-3.357-14.759-.049a9,9,0,0,1-2.533-6.137A11.068,11.068,0,0,1,277.821,299.617Z" transform="translate(-13.183 -26.171)" fill="#f0a51f"/>
+      <path id="Path_66" data-name="Path 66" d="M262.663,316.468s-1.559,3.945,0,7.258c0,0-3.161.292-3.16-3.629A3.6,3.6,0,0,1,262.663,316.468Z" transform="translate(0 -39.807)" fill="#474747"/>
+      <path id="Path_67" data-name="Path 67" d="M414.182,323.717s1.559-3.945,0-7.258c0,0,3.161-.5,3.16,3.629A3.6,3.6,0,0,1,414.182,323.717Z" transform="translate(-125.171 -39.784)" fill="#474747"/>
+      <g id="Group_10" data-name="Group 10" transform="translate(264.419 275.389)">
+        <path id="Path_68" data-name="Path 68" d="M286.931,309.8h.56a8.9,8.9,0,0,0-1.534,4.907,9.731,9.731,0,0,0,1.534,4.907h-.609a9.3,9.3,0,0,1-1.607-4.907A8.51,8.51,0,0,1,286.931,309.8Z" transform="translate(-285.275 -309.802)" fill="#fff"/>
+        <path id="Path_69" data-name="Path 69" d="M397.92,319.617h-.56a8.9,8.9,0,0,0,1.534-4.907,9.73,9.73,0,0,0-1.534-4.907h.609a9.294,9.294,0,0,1,1.607,4.907A8.51,8.51,0,0,1,397.92,319.617Z" transform="translate(-375.977 -309.802)" fill="#fff"/>
+      </g>
+      <circle id="Ellipse_9" data-name="Ellipse 9" cx="0.999" cy="0.999" r="0.999" transform="translate(269.935 276.978)" fill="#324357"/>
+      <circle id="Ellipse_10" data-name="Ellipse 10" cx="0.999" cy="0.999" r="0.999" transform="translate(280.505 276.978)" fill="#324357"/>
+      <path id="Path_70" data-name="Path 70" d="M314.19,340.394a9.038,9.038,0,0,0,6.5,2.547,8.541,8.541,0,0,0,6.065-2.547s-1,3.788-6.249,3.788C320.508,344.182,315.708,344.182,314.19,340.394Z" transform="translate(-44.577 -59.168)" fill="#324357"/>
+      <rect id="Rectangle_17" data-name="Rectangle 17" width="1.104" height="3.767" transform="translate(275.412 269.68)" fill="#324357"/>
+      <circle id="Ellipse_11" data-name="Ellipse 11" cx="1.429" cy="1.429" r="1.429" transform="translate(274.536 267.277)" fill="#af0a1b"/>
+    </g>
+  </g>
+</svg>

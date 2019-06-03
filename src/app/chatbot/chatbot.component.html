@@ -1,0 +1,210 @@
+<h3 class=" text-center">Ask Bot about</h3>
+<div ><ul class="faqlist">
+  <li>With You Hamesha app</li><li>Working Hours</li><li>WEBSITE</li><li>warranty purchase</li><li>warranty offer</li><li>warranty expiry</li><li>warranty validity</li><li>warranty cost</li><li>warranty benefits</li><li>use SOS</li><li>service due logic</li><li>RSA PURCHASE</li><li>RSA OFFER</li><li>rsa expiry</li><li>RSA VALIDITY</li><li>RSA COST</li><li>rsa</li><li>Video Call</li><li>use payment</li><li>scheme</li><li>workshops</li><li>benefits</li><li>visit</li><li>appointment notifications</li><li>service application</li><li>reminder</li>
+  <li>workshop timings</li><li>workshop benefits</li><li>Vehicle Insurance</li><li>replace tyre</li><li>Maximile Name</li><li>year Shield</li><li>inclusion</li><li>service denial</li><li>Scholarship Eligibility</li><li>RSA Check eligibility</li><li>tyre change</li><li>Relationship Manager keeps changing</li><li>relationship manager</li><li>referral program eligibility</li><li>referral program benefits</li><li>pickup and drop offering</li><li>loyalty offers</li><li>times change</li><li>Voucher pending</li><li>Service at office</li><li>Not received bonus</li><li>welcome kit</li><li>zoom car</li><li>holiday</li><li>voucher date expiry</li><li>chargable pick drop</li><li>COO</li><li>accidental insurance</li><li>Scholarship Apply</li><li>pick and drop services</li>
+</ul></div>
+<div class="messaging" >
+      <div class="inbox_msg">
+        
+        <div class="mesgs" #scrollMe>
+            <!--<ngx-spinner
+            bdOpacity = 0.9
+            bdColor = "#333"
+            size = "medium"
+            color = "#fff"
+            type = "ball-fussion"
+            fullScreen = "true">
+            <p style="color: white" > Loading... </p>
+            </ngx-spinner>-->
+          <div class="msg_history" *ngFor="let message of chatarr">
+            
+            <div class="incoming_msg" *ngIf="message.type=='O'">
+                <div class="ui-bot-icon ui-bot-name">
+                    <img src="assets/images/icn_chatbot.svg">With You Hamesha BOT
+                  </div>
+              
+              <div class="received_msg" *ngFor="let msg of message.message">
+                  <div class="received_withd_msg" >
+                  <span *ngIf="msg.type=='text'">
+                  <p [innerHTML]="msg.message | safe: 'html'"></p>
+                  </span>
+                  <span *ngIf="msg.type=='popup'">
+                      <p [innerHTML]="msg.message | safe: 'html'"></p>
+                      <button class="button button-inner" (click)="openModel(addjob,msg.setcontext)" name="addjobpopup" type="button">Add Jobs</button>
+                      <button class="button button-inner" (click)="skipjobcardaddition(msg.setcontext)" name="skipjobpopup" type="button">Skip</button>
+                      
+                  </span>
+                  <span *ngIf="msg.type=='addrpopup'">
+                    <button class="button button-inner" (click)="openModel(addaddresstemp,msg.setcontext)" name="addjobpopup" type="button">Yes</button>
+                    <button class="button button-inner" (click)="processuserinputchips('No',msg.setcontext,{},msg.removecontext)" name="skipjobpopup" type="button">No</button>
+                    
+                 </span>
+                  <span *ngIf="msg.type=='chip'">
+                  <span class="chipsbuttons" *ngFor="let chip of msg.chips">
+                      <button class="button button-inner" (click)="processuserinputchips(chip,msg.setcontext,chip,msg.removecontext)" name="chipbtn{{chip}}" type="button">{{chip}}</button>
+                  </span>
+                   </span>
+                   <span *ngIf="msg.type=='payload'">
+                      <carousel *ngIf="msg.payloadtype=='dealerlist'">
+                          <slide *ngFor="let chip of msg.data">
+                              <div class="card">
+                                  <div class="container">
+                                    <h6 (click)="processpayload(chip.DealerName,msg.setcontext,chip,msg.removecontext)"><b>{{chip.DealerName}}</b></h6> 
+                                    <p>{{chip.DealerAddress}} KM</p>
+                                    <p>
+                                      <!--<button class="button button-inner-smallht"  type="button">Call</button>
+                                      <button class="button button-inner-smallht"  type="button">Locate</button>-->
+                                      <button class="button button-inner-smallht" (click)="processpayload(chip.DealerName,msg.setcontext,chip,msg.removecontext)" type="button">Book</button></p> 
+                                  </div>
+                                  
+                                </div>
+                              
+                      </slide>
+                     </carousel>
+                     <span *ngIf="msg.payloadtype=='date'">
+                      <span *ngFor="let chip of msg.data" class="chipsbuttons">
+                          <button class="button button-inner" (click)="processuserinputchips(chip.Date,msg.setcontext,chip,msg.removecontext)" name="chipbtn{{chip.Date}}" type="button">{{chip.Date}}</button>
+                      </span>
+                       </span>
+                       <span *ngIf="msg.payloadtype=='time'">
+                        <span *ngFor="let chip of msg.data" class="chipsbuttons">
+                            <button class="button button-inner" (click)="processuserinputchips(chip.Time,msg.setcontext,chip,msg.removecontext)" name="chipbtn{{chip.Time}}" type="button">{{chip.Time}}</button>
+                        </span>
+                         </span>
+                         <span *ngIf="msg.payloadtype=='table'">
+                            <p [innerHTML]="msg.data | safe: 'html'"></p>
+                          
+                          <br>
+                          <button class="button button-inner" (click)="processuserinputchips('Confirm',msg.setcontext,msg.removecontext)" name="chipbtn" type="button">Confirm & book</button>
+                          <button class="button button-inner" (click)="processuserinputchips('Abort',msg.setcontext,msg.removecontext)" name="chipbtn" type="button">Abort</button>
+                        </span>
+                        <span *ngIf="msg.payloadtype=='feedback'">
+                            <form class="addform" id="frm_scr_serach" [formGroup]="frm_scr_serach" (ngSubmit)="onSubmit()" (ngSubmit)="onSubmit()">						
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input  formControlName="name" class="form-control" type="text" name="name" id="name"  placeholder="Please Enter Name"/>
+                                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                        <div *ngIf="f.name.errors.required">Please enter name</div>
+                                    </div>
+                                  </div>			
+                                
+                                <div class="form-group">
+                                    <label for="name">I have:</label>
+                                    <input  formControlName="carmodel" class="form-control" type="text" name="carmodel" id="carmodel"  placeholder="Select Your Model"/>
+                                    <div *ngIf="submitted && f.carmodel.errors" class="invalid-feedback">
+                                        <div *ngIf="f.carmodel.errors.required">Please select car model</div>
+                                    </div>
+                                  </div>	
+                                <div class="form-group">
+                                    <label for="name">Dealer Name:</label>
+                                    <input class="form-control"  formControlName="dealername" type="text" name="dealername" id="dealername" placeholder="Dealer Name"/>
+                                </div>
+                                			                              
+                                <div class="form-group">
+                                    <label for="name">Comments:</label>
+                                    <textarea formControlName="comment" class="form-control" name="comment" id="comment" placeholder="Comments"></textarea>
+                                    <div *ngIf="submitted && f.comment.errors" class="invalid-feedback">
+                                        <div *ngIf="f.comment.errors.required">Please select car model</div>
+                                    </div>
+                                </div>
+                                				
+                                				
+                                <div class="form-group text-center">
+                                    <button class="button button-inner" (click)="processuserinputchips('Feedback Submitted',msg.setcontext,msg.removecontext)" name="chipbtn" type="button">Submit</button>
+                                </div>					
+                              </form>
+                        </span>
+                       </span>
+                  </div>
+                 
+              </div>
+            </div>
+
+            <div class="outgoing_msg" *ngIf="message.type=='I'">
+              <div class="sent_msg" *ngFor="let msg of message.message">
+                  <p [innerHTML]="msg.message | safe: 'html'"></p>
+              </div>
+            </div>
+            
+            
+            
+          </div>
+          <div class="type_msg">
+            <div class="input_msg_write">
+              <input type="text" name="userinputmessage" id="userinputmessage" class="write_msg" placeholder="Type a message" [(ngModel)]="userinputmessage" />
+              <button [disabled]="userinputmessage === ''" (click)="processuserinput()" class="msg_send_btn" type="button"><img src="assets/images/icn_send.svg"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      
+    </div>
+
+    <ng-template #addjob>
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">Add Job</h4>
+          <!--<button type="button" class="close pull-right" aria-label="Close" (click)="modalref.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>-->
+        </div>
+        <div class="modal-body">
+          <div class="addsecsorform newfrmsnr">
+              <div class="row">
+            <div class="col-6 extsnsr pd0">
+             <input type="text" placeholder="Add Job" class="form-control opt" name="job" id="job" #job />
+            </div>
+            <div class="col-6 extsnsr pd0">
+               <button type="button" class="btn btn-secondary btn-sm" name="addjobs" id="addjobs"  (click)="addjobstoarray(job.value);"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            </div>
+              </div>
+              <div class="row" *ngFor="let job of jobs;let i=index">
+            <div class="col-6 extsnsr pd0">
+               <p>{{job}}</p>
+             </div>
+             <div class="col-6 extsnsr pd0">
+                <button type="button" class="btn btn-secondary btn-sm" name="removejobs" (click)="removejobstoarray(i)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+              </div>
+            </div>
+            <div class="col-12 extsnsr pd10 row">
+              <br>
+            <button class="button button-inner" (click)="addjobcardaddition(sessionkey);modalref.hide()" name="addjobcard" type="button">Add Jobcard</button>
+            <button class="button button-inner" (click)="skipjobcardaddition(sessionkey);modalref.hide()" name="skipjob" type="button">Skip</button>	
+            </div>
+          </div>
+            </div>
+      </ng-template>
+
+      <ng-template #endchat>
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Exit</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalref.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="addsecsorform newfrmsnr">
+              <p>Ok,thanks! It was lovely talking to you.We should do this more often.<br>I'm just couple of taps away.Have a good day!:)<br>Shall I go ahead and close this session</p>>
+              <div class="col-12 extsnsr pd0">
+              <button class="button button-inner" (click)="endchatcancel(sessionkey);modalref.hide()" name="endchatyes">No</button>
+              <button class="button button-inner" (click)="endchat(sessionkey);modalref.hide()" name="endchatno" >Yes</button>	
+              </div>
+            </div>
+              </div>
+        </ng-template>
+
+        <ng-template #addaddresstemp>
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Address</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalref.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <textarea name="txtaddress" id="txtaddress" [(ngModel)]="address"></textarea><br>
+            <button class="button button-inner" (click)="addaddress(sessionkey);modalref.hide()" name="addaddressbtn">Add Address</button>
+            <button class="button button-inner" (click)="skipaddress(sessionkey);modalref.hide()" name="skipaddressbtn">Skip</button>	
+          </div>
+        </ng-template>

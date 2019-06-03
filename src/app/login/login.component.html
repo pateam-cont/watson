@@ -1,0 +1,23 @@
+<h3 class=" text-center">&nbsp;</h3>
+<div class="loginfrms">
+	<div class="loginfrmsinner">
+		<div style="text-align:center">
+			<img src="assets/images/logo_wyh_chatbot.svg" width="110">
+		</div>
+			<h3 class="text-center h5 mb-3">Help me with few details to get started</h3>
+		<form class="loginform">
+				<div class="form-group" *ngIf="errormsg != ''">
+					 <div class="alert alert-warning">{{errormsg}}</div>
+					</div>
+			<div class="form-group">
+				<input type="tel" class="form-control" autocomplete="off" name="username" placeholder="Name" [(ngModel)]="username">
+			</div>			
+			<div class="form-group">
+				<input type="text" class="form-control" autocomplete="off" name="email" placeholder="Email address" [(ngModel)]="email">
+			</div>				
+			<div class="form-group text-center">
+				<button type="submit" class="button button-inner" (click)="checlogin()">SIGN IN</button>
+			</div>					
+		</form>
+	</div>
+	</div>

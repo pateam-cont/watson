@@ -1,0 +1,26 @@
+/******************Media Query CSS***************/
+@media screen and (max-width: 767px){
+
+}
+@media screen and (min-width: 360px) and (max-width: 640px){
+.upcomingactivity {
+    /* padding-bottom: 90px; */
+    padding-bottom: 50px;
+}	
+	
+}
+@media screen and (max-width: 320px){
+.shdateinner h6 {
+    font-size: 10px;
+}
+.todaysdate{
+    font-size: 10px;
+    font-weight: 700;
+}
+.actdt{
+	
+}
+.timeline {
+    max-height: 100%;
+}
+}
